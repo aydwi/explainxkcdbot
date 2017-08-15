@@ -28,26 +28,40 @@ def authenticate():
     return reddit
 
 
-def fetchdata(url):
+def fetch_explanation(xkcd_id):
 
-    r = requests.get(url)
-    soup = BeautifulSoup(r.content, 'html.parser')
+    # http://www.explainxkcd.com/wiki/api.php
+    params = {
+        'action': 'parse',
+        'page': xkcd_id,
+        # So we don't need to find out the XKCD title and somehow parse that
+        'redirects': 'true',
+        'prop': 'text',
+        'format': 'json',
+        # Only the transcript bit, not the discussion and other stuff we don't want
+        'section': '1'
+    }
 
-    tag = soup.find('p')
-    data = ''
-    while True:
-        if isinstance(tag, bs4.element.Tag):
-            if (tag.name == 'h2'):
-                break
-            if (tag.name == 'h3'):
-                tag = tag.nextSibling
-            else:
-                data = data + '\n' + tag.text
-                tag = tag.nextSibling
-        else:
-            tag = tag.nextSibling
-    
-    return data
+    r = requests.get('http://www.explainxkcd.com/wiki/api.php/', params=params).json()
+
+    # Invalid xkcd id or another error.
+    # just raise an exception so the call below doesn't have to be modified
+    if 'error' in r:
+        raise Exception
+
+    soup = BeautifulSoup(r['parse']['text']['*'], 'html.parser')
+
+    # Remove the "Explanation" h2
+    soup.find('h2').decompose()
+
+    # Remove all html
+    explanation = soup.get_text(separator="\n")
+
+    # Remove single whitespace (that isn't preceeded or succeeded by a \n),
+    # which will only be from inline bits inside the <p> tags
+    # (Isn't really necessary, but produces an ugly output otherwise,
+    # but still looks good after Markdown does its magic)
+    return re.sub('(?<!\n)(\n)(?!\n)', '', explanation).strip()
 
 
 def run_explainbot(reddit):
@@ -63,12 +77,11 @@ def run_explainbot(reddit):
 
             url_obj = urlparse(xkcd_url)
             xkcd_id = int((url_obj.path.strip("/")))
-            myurl = 'http://www.explainxkcd.com/wiki/index.php/' + str(xkcd_id)
             
             file_obj_r = open(path,'r')
                         
             try:
-                explanation = fetchdata(myurl)
+                explanation = fetch_explanation(xkcd_id)
             except:
                 print('Exception!!! Possibly incorrect xkcd URL...\n')
                 # Typical cause for this will be a URL for an xkcd that does not exist (Example: https://www.xkcd.com/772524318/)
