@@ -39,5 +39,5 @@ A Reddit bot that posts explanation of the [xkcd](https://www.xkcd.com/) links p
 5. Run the command `python3 explainxkcdbot.py` in the Terminal to run the bot.
 
 ### Additional notes-
-1. At a minimum, three files, namely *explainxkcdbot.py*, *praw.ini* and *commented.txt* are required for the bot to run. It is possible to use other file types (even plain text) to store the authentication credentials, but creating and using *praw.ini* is recommended.
+1. It is possible to use other file types (even plain text) to store the authentication credentials, but creating and using *praw.ini* is recommended.
 2. If the Reddit API returns an error due to too many requests, adjust `val` in the instances of `time.sleep(val)` in *explainxkcdbot.py*
