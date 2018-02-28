@@ -8,9 +8,9 @@ A Reddit bot that posts explanation of the [xkcd](https://www.xkcd.com/) links p
 2. PRAW
    * Install by running `pip3 install praw`.
 3. Python Requests
-   * Install `pip3 install requests`.
+   * Install by running `pip3 install requests`.
 4. Beautiful Soup 4
-   * Install `pip3 install beautifulsoup4`.
+   * Install by running `pip3 install beautifulsoup4`.
    
 Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a “virtual” isolated Python installation and install packages into that installation is recommended.
 
@@ -38,7 +38,7 @@ Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a “virtual�
     ```
 3. Create a blank text file named *commented.txt* inside the project directory
 4. In *explainxkcdbot.py*, replace the value of `path` with the location of your *commented.txt*.
-5. Run the command `python3 explainxkcdbot.py` in the Terminal to run the bot.
+5. Run `python3 explainxkcdbot.py` to run the bot.
 
 ### Additional notes-
 1. It is possible to use other file types (even plain text) to store the authentication credentials, but creating and using *praw.ini* is recommended.
