@@ -27,8 +27,8 @@ Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a â€œvirtualâ
 5. You will be given a `client_id` and a `client_secret`. Keep them confidential.
 
 ### How to run it-
-1. Clone or download (and extract) this repository and navigate to its directory
-2. Create a file named *praw.ini* with it's contents as:
+1. Clone this repository and navigate to its directory.
+2. Create a file named *praw.ini* with its contents as:
     ```
     [explainbot]
     username: reddit username
@@ -36,8 +36,8 @@ Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a â€œvirtualâ
     client_id: client_id that you got
     client_secret: client_secret that you got
     ```
-3. Create a blank text file named *commented.txt* inside the project directory
-4. In *explainxkcdbot.py*, replace the value of `path` with the location of your *commented.txt*.
+3. Create an empty text file named *commented.txt* inside the project directory.
+4. In *explainxkcdbot.py*, replace the value of `path` with the location of *commented.txt*.
 5. Run `python3 explainxkcdbot.py` to run the bot.
 
 ### Additional notes-
