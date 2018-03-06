@@ -5,13 +5,15 @@
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
+import os
 import praw
 import time
 import re
 import requests
 import bs4
 
-path = '/home/ayush/Projects/explainxkcdbot/commented.txt'
+
+commented_path = 'commented.txt'
 # Location of file where id's of already visited comments are maintained
 
 header = '**Explanation of this xkcd:**\n'
@@ -62,15 +64,17 @@ def run_explainbot(reddit):
 
             url_obj = urlparse(xkcd_url)
             xkcd_id = int((url_obj.path.strip("/")))
-            myurl = 'http://www.explainxkcd.com/wiki/index.php/' + str(xkcd_id)
-            
-            file_obj_r = open(path,'r')
+            target_url = 'http://www.explainxkcd.com/wiki/index.php/' + str(xkcd_id)
+
+            if not os.path.exists(commented_path):
+                open(commented_path, 'w').close()
+            file_obj_r = open(commented_path,'r')
                         
             try:
-                explanation = fetchdata(myurl)
-            except:
-                print('Exception!!! Possibly incorrect xkcd URL...\n')
-                # Typical cause for this will be a URL for an xkcd that does not exist
+                explanation = fetchdata(target_url)
+            except Exception as e:
+                print('An exception occured - ' + str(e) + '\n')
+                # Typical cause for this can be a URL for an xkcd that does not exist
                 # (Example: https://www.xkcd.com/772524318/)
             else:
                 if comment.id not in file_obj_r.read().splitlines():
@@ -79,7 +83,7 @@ def run_explainbot(reddit):
                     
                     file_obj_r.close()
 
-                    file_obj_w = open(path,'a+')
+                    file_obj_w = open(commented_path,'a+')
                     file_obj_w.write(comment.id + '\n')
                     file_obj_w.close()
                 else:
