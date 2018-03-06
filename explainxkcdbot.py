@@ -1,6 +1,5 @@
 # A Reddit bot that posts explanation of xkcd comic strips posted in comments
 # The explanation is extracted from http://explainxkcd.com
-# Created by Ayush Dwivedi (/u/kindw)
 # License: MIT License
 
 from bs4 import BeautifulSoup
@@ -71,7 +70,8 @@ def run_explainbot(reddit):
                 explanation = fetchdata(myurl)
             except:
                 print('Exception!!! Possibly incorrect xkcd URL...\n')
-                # Typical cause for this will be a URL for an xkcd that does not exist (Example: https://www.xkcd.com/772524318/)
+                # Typical cause for this will be a URL for an xkcd that does not exist
+                # (Example: https://www.xkcd.com/772524318/)
             else:
                 if comment.id not in file_obj_r.read().splitlines():
                     print('Link is unique...posting explanation\n')
