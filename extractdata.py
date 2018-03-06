@@ -1,6 +1,5 @@
 # An independent program to fetch and display explanation of an xkcd comic by providing its serial number
 # The explanation is extracted from http://explainxkcd.com
-# Created by Ayush Dwivedi (/u/kindw)
 # License: MIT License
 
 
