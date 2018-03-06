@@ -28,10 +28,10 @@ Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a "virtual" i
     [explainbot]
     username: reddit username
     password: reddit password
-    client_id: client_id that got
-    client_secret: client_secret you got
+    client_id: client id you got
+    client_secret: client secret you got
     ```
-3. Run `python3 explainxkcdbot.py` to run the bot.
+3. Run `python3 explainxkcdbot.py` to start the bot.
 
 ### Additional notes-
 1. It is possible to use other file types (even plain text) to store the authentication credentials, but creating and using *praw.ini* is recommended.
