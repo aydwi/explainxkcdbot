@@ -2,17 +2,12 @@
 A Reddit bot that posts explanation of the [xkcd](https://www.xkcd.com/) links posted in the comments. The explanation is extracted from the [explain xkcd wiki](http://explainxkcd.com).
 
 ### Requirements-
-1. Python 3
-2. `pip` for Python 3 (recommended, but not necessary)
-   * For installation see [here](https://packaging.python.org/guides/installing-using-linux-tools/#installing-pip-setuptools-wheel-with-linux-package-managers) and [here](https://pip.pypa.io/en/stable/installing/).
-2. PRAW
-   * Install by running `pip3 install praw`.
-3. Python Requests
-   * Install by running `pip3 install requests`.
-4. Beautiful Soup 4
-   * Install by running `pip3 install beautifulsoup4`.
+* **pip** for Python 3 - For installation see [here](https://packaging.python.org/guides/installing-using-linux-tools/#installing-pip-setuptools-wheel-with-linux-package-managers) and [here](https://pip.pypa.io/en/stable/installing/).
+* **PRAW** - Install by running `pip3 install praw`.
+* **Requests** - Install by running `pip3 install requests`.
+* **Beautiful Soup** - Install by running `pip3 install beautifulsoup4`.
    
-Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a “virtual” isolated Python installation and install packages into that installation is recommended.
+Using [`virtualenv`](https://github.com/pypa/virtualenv) to create a "virtual" isolated Python installation for installing packages is recommended.
 
 
 ### Obtaining Reddit API access credentials-
