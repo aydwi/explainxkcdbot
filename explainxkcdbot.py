@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # A Reddit bot that posts explanation of xkcd comic strips posted in comments
 # The explanation is extracted from http://explainxkcd.com
 # License: MIT License
@@ -75,7 +77,7 @@ def run_explainbot(reddit):
             except Exception as e:
                 print('An exception occured - ' + str(e) + '\n')
                 # Typical cause for this can be a URL for an xkcd that does not exist
-                # (Example: https://www.xkcd.com/772524318/)
+                # Example: https://www.xkcd.com/772524318/
             else:
                 if comment.id not in file_obj_r.read().splitlines():
                     print('Link is unique...posting explanation\n')
