@@ -1,4 +1,7 @@
 # explainxkcdbot
+
+[![Last commit](https://img.shields.io/github/last-commit/aydwi/explainxkcdbot.svg)]()
+
 A Reddit bot that posts explanation of the [xkcd](https://www.xkcd.com/) links posted in the comments. The explanation is extracted from the [explain xkcd wiki](http://explainxkcd.com).
 
 ### Requirements-
