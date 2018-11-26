@@ -28,9 +28,7 @@ footer = (
 
 def authenticate():
     print("Authenticating...\n")
-    reddit = praw.Reddit(
-        "explainbot", user_agent="web:xkcd-explain-bot:v0.1"
-    )
+    reddit = praw.Reddit("explainbot", user_agent="web:xkcd-explain-bot:v0.1")
     print("Authenticated as {}\n".format(reddit.user.me()))
     return reddit
 
