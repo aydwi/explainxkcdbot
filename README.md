@@ -1,11 +1,11 @@
 # explainxkcdbot
 
-A fairly basic Reddit bot that posts explanation of the [xkcd](https://www.xkcd.com/) links posted in the comments. The explanation is extracted from the [explain xkcd wiki](http://explainxkcd.com).
+An experimantal Reddit bot that posts explanation of the [xkcd](https://www.xkcd.com/) links posted in the comments. The explanation is extracted from the [explain xkcd](http://explainxkcd.com) wiki.
 
 ### Requirements
-* [Requests](http://docs.python-requests.org/en/master/) - `pip install requests`
-* [PRAW](https://praw.readthedocs.io/en/latest/) - `pip install praw`
-* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - `pip install beautifulsoup4`
+* [Requests](http://docs.python-requests.org/en/master/)
+* [PRAW](https://praw.readthedocs.io/en/latest/)
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 
 ### Obtaining Reddit API access credentials
@@ -19,7 +19,7 @@ A fairly basic Reddit bot that posts explanation of the [xkcd](https://www.xkcd.
 4. Click **create app**
 5. You will be given a `client_id` and a `client_secret`. Keep them confidential.
 
-### How to run it
+### Running the bot
 1. Clone this repository and navigate to its directory.
 2. Create a file named *praw.ini* with its contents as:
     ```
